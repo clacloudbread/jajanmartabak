@@ -1,25 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
+  function goLogin() {
+    window.location.href = "login/index.html";
+  }
 
-    function goLogin() {
-        window.location.href = "login/index.html";
+  function logout() {
+    localStorage.removeItem("username");
+    location.reload();
+  }
+
+  function toggleDropdown(e) {
+    e.preventDefault();
+    const dropdown = document.getElementById("userDropdown");
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  // Tutup dropdown kalau klik di luar
+  document.addEventListener("click", function (e) {
+    const userOption = document.querySelector(".User_option");
+    if (!userOption.contains(e.target)) {
+      const dropdown = document.getElementById("userDropdown");
+      if (dropdown) dropdown.style.display = "none";
     }
+  });
 
-    function logout() {
-        localStorage.removeItem("username");
-        location.reload();
-    }
+  const user = localStorage.getItem("username");
+  const loginLink = document.getElementById("loginLink");
 
-    const user = localStorage.getItem("username");
+  if (user) {
+    document.getElementById("userInfo").innerText = "Halo, " + user;
+    // Ubah link jadi toggle dropdown
+    loginLink.removeAttribute("href");
+    loginLink.style.cursor = "pointer";
+    loginLink.addEventListener("click", toggleDropdown);
+  }
 
-    if (user) {
-        document.getElementById("userInfo").innerText = "Halo, " + user;
-
-        document.getElementById("authArea").innerHTML = `
-            <button onclick="logout()" class="nav-cta">Logout</button>
-        `;
-    }
-
-    window.goLogin = goLogin;
-    window.logout = logout;
-
+  window.goLogin = goLogin;
+  window.logout = logout;
 });

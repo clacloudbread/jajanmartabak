@@ -1,449 +1,596 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+    <title>Makan-Makan Martabak</title>
 
-  <title>Makan-Makan Martabak</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- nice select -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+      integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4="
+      crossorigin="anonymous"
+    />
+    <!-- slidck slider -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+      integrity="sha256-UK1EiopXIL+KVhfbFa8xrmAWPeBjMVdvYMYkTAEv/HI="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css.map"
+      integrity="undefined"
+      crossorigin="anonymous"
+    />
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
 
-  <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <!-- nice select -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
-  <!-- slidck slider -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha256-UK1EiopXIL+KVhfbFa8xrmAWPeBjMVdvYMYkTAEv/HI=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css.map" integrity="undefined" crossorigin="anonymous" />
-
-
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-
-</head>
-
-<body>
-
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Jajan Martabak
-            </span>
-          </a>
-          <div class="" id="">
-            <div class="User_option">
-              <a href="">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <span>Login</span>
-              </a>
-                                  <p id="userInfo">Belum login</p>
-								
-							<div id="authArea">
-									<button onclick="goLogin()" class="nav-cta">Login</button>
-							</div>
-             
-            </div>
-            <div class="custom_menu-btn">
-              <button onclick="openNav()">
-                <img src="images/menu.png" alt="">
-              </button>
-            </div>
-            <div id="myNav" class="overlay">
-              <div class="overlay-content">
-                <a href="index.html">Martabak</a>
-                <a href="about.html">Tentang Martabak</a>
-                <a href="blog.html">Blog</a>
-                <a href="testimonial.html">Ulasan</a>
+  <body>
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+              <span> Jajan Martabak </span>
+            </a>
+            <div class="" id="">
+              <div class="User_option" style="position: relative">
+                <a
+                  href="login/index.html"
+                  id="loginLink"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: white;
+                    text-decoration: none;
+                  "
+                >
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span id="userInfo">Login</span>
+                </a>
+                <!-- Dropdown logout (muncul kalau sudah login) -->
+                <div
+                  id="userDropdown"
+                  style="
+                    display: none;
+                    position: absolute;
+                    top: 130%;
+                    right: 0;
+                    background: white;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+                    min-width: 140px;
+                    z-index: 9999;
+                    overflow: hidden;
+                  "
+                >
+                  <button
+                    onclick="logout()"
+                    style="
+                      width: 100%;
+                      padding: 12px 18px;
+                      border: none;
+                      background: white;
+                      color: #e8821a;
+                      font-weight: 600;
+                      font-size: 0.95rem;
+                      cursor: pointer;
+                      text-align: left;
+                      display: flex;
+                      align-items: center;
+                      gap: 8px;
+                    "
+                    onmouseover="this.style.background = '#fff5ee'"
+                    onmouseout="this.style.background = 'white'"
+                  >
+                    <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                  </button>
+                </div>
+              </div>
+              <div class="custom_menu-btn">
+                <button onclick="openNav()">
+                  <img src="images/menu.png" alt="" />
+                </button>
+              </div>
+              <div id="myNav" class="overlay">
+                <div class="overlay-content">
+                  <a href="index.html">Martabak</a>
+                  <a href="about.html">Tentang Martabak</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="testimonial.html">Ulasan</a>
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
 
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div class="container ">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <div class="detail-box">
-              <h1>
-                Menjelajah Aneka Rasa Martabak Asin & Manis
-              </h1>
-              <p>
-                Martabak Bangka di Daerah Istimewa Yogyakarta
-              </p>
-            </div>
-            <div class="find_container ">
-              <div class="container">
-                <div class="row">
-                  <div class="col">
-                    
+      <!-- slider section -->
+      <section class="slider_section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <div class="detail-box">
+                <h1>Menjelajah Aneka Rasa Martabak Asin & Manis</h1>
+                <p>Martabak Bangka di Daerah Istimewa Yogyakarta</p>
+              </div>
+              <div class="find_container">
+                <div class="container">
+                  <div class="row">
+                    <div class="col"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="slider_container">
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img1.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img2.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img3.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img4.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img1.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img2.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img3.png" alt="" />
+            </div>
+          </div>
+          <div class="item">
+            <div class="img-box">
+              <img src="images/slider-img4.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end slider section -->
+    </div>
+
+    <!-- recipe section -->
+
+    <section class="recipe_section layout_padding-top">
+      <div class="container">
+        <div
+          class="heading_container heading_center"
+          style="margin-bottom: 40px"
+        >
+          <h2>Rekomendasi Martabak Bangka di Yogyakarta</h2>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+          "
+        >
+          <!-- Map 1 -->
+          <div style="text-align: center; margin-bottom: 10px">
+            <h4 style="margin-bottom: 8px">Martabak Bangka Mas Wahyu</h4>
+            <div style="color: #e8821a; font-size: 1.5rem; margin-bottom: 6px">
+              &#8595;
+            </div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1224814482434!2d110.4154197!3d-7.7768353999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5985f206e2af%3A0x6229c257d016f79d!2sMARTABAK%20BANGKA%20MAS%20WAHYU!5e0!3m2!1sid!2sid!4v1779673562143!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0; display: block"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <!-- Map 2 -->
+          <div
+            style="text-align: center; margin-top: 40px; margin-bottom: 10px"
+          >
+            <h4 style="margin-bottom: 8px">Martabak Bangka Mas Feri</h4>
+            <div style="color: #e8821a; font-size: 1.5rem; margin-bottom: 6px">
+              &#8595;
+            </div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0916344247585!2d110.3924979!3d-7.7801084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59c670c5511d%3A0xd34e82c61569ed78!2sMartabak%20Bangka%20Mas%20Feri!5e0!3m2!1sid!2sid!4v1779673927569!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0; display: block"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <!-- Map 3 -->
+          <div
+            style="text-align: center; margin-top: 40px; margin-bottom: 10px"
+          >
+            <h4 style="margin-bottom: 8px">Martabak Bangka "Nanie"</h4>
+            <div style="color: #e8821a; font-size: 1.5rem; margin-bottom: 6px">
+              &#8595;
+            </div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0916344247585!2d110.3924979!3d-7.7801084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59cf0392dbdd%3A0xd8e493a7204dc8de!2sMartabak%20Bangka%20%22Nanie%22!5e0!3m2!1sid!2sid!4v1779673987104!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0; display: block"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
       </div>
-      <div class="slider_container">
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img1.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img2.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img3.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img4.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img1.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img2.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img3.png" alt="" />
-          </div>
-        </div>
-        <div class="item">
-          <div class="img-box">
-            <img src="images/slider-img4.png" alt="" />
+    </section>
+    <!-- end recipe section -->
+
+    <!-- app section -->
+
+    <section class="app_section">
+      <div class="container">
+        <div class="col-md-9 mx-auto">
+          <div class="row">
+            <div class="col-md-7 col-lg-8">
+              <div class="detail-box">
+                <h2>
+                  <span> Dapatkan</span> <br />
+                  Martabak Bangka Mas Wahyu, Martabak Bangka Mas Feri, &
+                  Martabak Bangka "Nanie".
+                </h2>
+                <p>
+                  Melalui aplikasi pesan antar makanan atau kunjungi Martabak
+                  Bangka di Daerah Istimewa Yogyakarta.
+                </p>
+                <div class="app_btn_box">
+                  <a href="" class="mr-1">
+                    <img src="images/google_play.png" class="box-img" alt="" />
+                  </a>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    class="mr-1"
+                  >
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Google_Maps_Logo_2020.svg/512px-Google_Maps_Logo_2020.svg.png"
+                      class="box-img"
+                      alt="Google Maps"
+                      style="height: 40px; width: auto"
+                    />
+                  </a>
+                </div>
+                <a href="" class="download_btn"> Pesan sekarang! </a>
+              </div>
+            </div>
+            <div class="col-md-5 col-lg-4"></div>
           </div>
         </div>
       </div>
     </section>
-    <!-- end slider section -->
-  </div>
 
+    <!-- end app section -->
 
-  <!-- recipe section -->
+    <!-- about section -->
 
-  <section class="recipe_section layout_padding-top">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Rekomendasi Martabak Bangka di Yogyakarta
-        </h2>
-       </div>
-	
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.1224814482434!2d110.4154197!3d-7.7768353999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5985f206e2af%3A0x6229c257d016f79d!2sMARTABAK%20BANGKA%20MAS%20WAHYU!5e0!3m2!1sid!2sid!4v1779673562143!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <h4>
-                Martabak Bangka Mas Wahyu                                 
-              </h4>
-		
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0916344247585!2d110.3924979!3d-7.7801084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59c670c5511d%3A0xd34e82c61569ed78!2sMartabak%20Bangka%20Mas%20Feri!5e0!3m2!1sid!2sid!4v1779673927569!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <h4>
-                Martabak Bangka Mas Feri
-              </h4>
-           
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.0916344247585!2d110.3924979!3d-7.7801084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59cf0392dbdd%3A0xd8e493a7204dc8de!2sMartabak%20Bangka%20%22Nanie%22!5e0!3m2!1sid!2sid!4v1779673987104!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              <h4>
-                Martabak Bangka "Nanie"
-              </h4>   
-      </div>                          
-	</div>                    
-  </section>
-  <!-- end recipe section -->
-
-  <!-- app section -->
-
-  <section class="app_section">
-    <div class="container">
-      <div class="col-md-9 mx-auto">
-        <div class="row">
-          <div class="col-md-7 col-lg-8">
-            <div class="detail-box">
-              <h2>
-                <span> Dapatkan</span> <br>
-                 Martabak Bangka Mas Wahyu, Martabak Bangka Mas Feri, & Martabak Bangka "Nanie".
-              </h2>
-              <p>
-                Melalui aplikasi pesan antar makanan atau kunjungi Martabak Bangka di Daerah Istimewa Yogyakarta.
-              </p>
-              <div class="app_btn_box">
-                <a href="" class="mr-1">
-                  <img src="images/google_play.png" class="box-img" alt="">
-                </a>
+    <section class="about_section layout_padding">
+      <div class="container">
+        <div class="col-md-11 col-lg-10 mx-auto">
+          <div class="heading_container heading_center">
+            <h2>Mari Mengenal Martabak</h2>
+          </div>
+          <div class="box">
+            <div class="col-md-7 mx-auto">
+              <div class="img-box">
+                <img src="images/about-img.jpg" class="box-img" alt="" />
               </div>
-              <a href="" class="download_btn">
-                Pesan sekarang!
+            </div>
+            <div class="detail-box">
+              <p>
+                Martabak merupakan salah satu jajanan populer di Indonesia yang
+                terdiri dari dua jenis utama, yaitu martabak asin dan martabak
+                manis. Namun, makanan ini sebenarnya berasal dari Timur Tengah
+                dan India. Kata “martabak” berasal dari bahasa Arab muttabaq
+                yang berarti “dilipat.” Martabak dibawa ke Asia Tenggara oleh
+                pedagang dan imigran Muslim dari India serta Yaman yang datang
+                ke Indonesia sekitar abad ke-19. Di India, martabak dikenal
+                sebagai murtabak atau paratha, yaitu roti pipih berisi daging
+                dan rempah-rempah. Setelah masuk ke Indonesia, martabak
+                mengalami perkembangan sesuai selera masyarakat lokal. Martabak
+                asin tetap mempertahankan ciri khas asli dengan kulit tipis dan
+                isian daging cincang, telur, daun bawang, serta bumbu rempah.
+                Sementara itu, martabak manis merupakan hasil perpaduan budaya
+                Tionghoa yang terinspirasi dari kue Hok Lo Pan. Martabak manis
+                dibuat dari adonan tebal dan lembut dengan berbagai topping
+                seperti cokelat, kacang, keju, dan susu kental manis, sehingga
+                menjadi salah satu makanan favorit masyarakat Indonesia hingga
+                sekarang.
+              </p>
+              <a href="">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
               </a>
             </div>
           </div>
-          <div class="col-md-5 col-lg-4">
+        </div>
+      </div>
+    </section>
+
+    <!-- end about section -->
+
+    <!-- news section -->
+
+    <section class="news_section">
+      <div class="container">
+        <div class="heading_container heading_center">
+          <h2>Jenis Martabak</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/n1.jpg" class="box-img" alt="" />
+              </div>
+              <div class="detail-box">
+                <h4>Martabak Asin</h4>
+                <p>
+                  Martabak asin adalah makanan gurih khas Indonesia yang terbuat
+                  dari campuran telur (ayam/bebek), daging cincang (sapi/ayam),
+                  dan daun bawang yang dibungkus kulit tipis, lalu digoreng
+                  hingga garing. Makanan ini memiliki cita rasa gurih-pedas dan
+                  umumnya disajikan dengan kuah cuka, acar, serta cabe rawit.
+                </p>
+                <a
+                  href="https://youtu.be/QBBUmI9J4lw?si=hpdNbUdqnq668071"
+                  target="_blank"
+                >
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box">
+              <div class="img-box">
+                <img src="images/n2.jpg" class="box-img" alt="" />
+              </div>
+              <div class="detail-box">
+                <h4>Martabak Manis</h4>
+                <p>
+                  Martabak manis adalah jajanan populer Indonesia berupa kue
+                  dadar tebal berpori (bersarang) yang dipanggang, diolesi
+                  mentega, dan diberi berbagai topping, sering disebut juga
+                  terang bulan atau kue Bandung.
+                </p>
+                <a
+                  href="https://youtu.be/OBTeVmfvq-Q?si=KERfkxSa2jmU9PQU"
+                  target="_blank"
+                >
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>	  
-  </section>
+    </section>
 
-  <!-- end app section -->
+    <!-- end news section -->
 
-  <!-- about section -->
+    <!-- client section -->
 
-  <section class="about_section layout_padding">
-    <div class="container">
-      <div class="col-md-11 col-lg-10 mx-auto">
-        <div class="heading_container heading_center">
-          <h2>
-            Mari Mengenal Martabak
-          </h2>
-        </div>
-        <div class="box">
-          <div class="col-md-7 mx-auto">
-            <div class="img-box">
-              <img src="images/about-img.jpg" class="box-img" alt="">
-            </div>
+    <section class="client_section layout_padding">
+      <div class="container">
+        <div class="col-md-11 col-lg-10 mx-auto">
+          <div class="heading_container heading_center">
+            <h2>Ulasan</h2>
           </div>
-          <div class="detail-box">
-            <p>
-              Martabak merupakan salah satu jajanan populer di Indonesia yang terdiri dari dua jenis utama, yaitu martabak asin dan martabak manis. Namun, makanan ini sebenarnya berasal dari Timur Tengah dan India. Kata “martabak” berasal dari bahasa Arab muttabaq yang berarti “dilipat.” Martabak dibawa ke Asia Tenggara oleh pedagang dan imigran Muslim dari India serta Yaman yang datang ke Indonesia sekitar abad ke-19. Di India, martabak dikenal sebagai murtabak atau paratha, yaitu roti pipih berisi daging dan rempah-rempah.
-		    	Setelah masuk ke Indonesia, martabak mengalami perkembangan sesuai selera masyarakat lokal. Martabak asin tetap mempertahankan ciri khas asli dengan kulit tipis dan isian daging cincang, telur, daun bawang, serta bumbu rempah. Sementara itu, martabak manis merupakan hasil perpaduan budaya Tionghoa yang terinspirasi dari kue Hok Lo Pan. Martabak manis dibuat dari adonan tebal dan lembut dengan berbagai topping seperti cokelat, kacang, keju, dan susu kental manis, sehingga menjadi salah satu makanan favorit masyarakat Indonesia hingga sekarang.
-            </p>
-            <a href="">
+          <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="detail-box">
+                  <h4>Utami Rahmawati - Martabak Bangka Mas Wahyu</h4>
+                  <p>
+                    Cari-cari martabak enak di sekitar Babarsari karena martabak
+                    langganan saya, Martabak Kubang, sedang tutup. Akhirnya
+                    menemukan tempat ini dan memutuskan untuk mencoba karena
+                    konsep jualannya cukup unik, menggunakan mobil. Awalnya
+                    tidak berekspektasi banyak, tetapi ternyata pilihan menunya
+                    cukup beragam. Setelah dicoba, martabak manisnya benar-benar
+                    enak. Teksturnya lembut, dengan rasa manis dan gurih yang
+                    pas. Selain itu, proses penyajiannya juga terlihat bersih
+                    dan higienis. Pokoknya recommended banget untuk yang sedang
+                    mencari martabak enak di area Babarsari!
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="detail-box">
+                  <h4>Ceca - Martabak Bangka Mas Feri</h4>
+                  <p>
+                    Saya pesan Martabak Telur Bebek Biasa. Rasanya enak, gurih,
+                    dan sesuai dengan martabak telur pada umumnya, isian telur
+                    bebeknya cukup terasa dan matang merata. Hanya saja, saat
+                    beli di sini perlu sedikit bersabar karena cukup ramai, jadi
+                    agak lama. Untuk cocolan sausnya menurut saya kurang cocok,
+                    rasanya lebih mirip sambal penyetan dibanding saus martabak
+                    pada umumnya. Secara keseluruhan, martabaknya tetap
+                    recommended karena rasanya enak dan porsinya pas. Kalau
+                    tidak terlalu masalah menunggu, tempat ini bisa jadi pilihan
+                    untuk martabak telur bebek yang mantap.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="detail-box">
+                  <h4>Pascalis Aditya Kristianto - Martabak Bangka "Nanie"</h4>
+                  <p>
+                    Salah satu martabak Bangka yang beneran autentik! Dapat
+                    rekomendasi dari teman yang asli orang Bangka, dan pas ke
+                    sana ternyata penjualnya pun asli dari sana, jadi menu dan
+                    resepnya emang khas Bangka banget. Baru nyobain martabak
+                    manis cokelat kejunya, rasanya mantap banget dan kejunya
+                    melimpah alias nggak pelit. Uniknya, di sini ada menu
+                    martabak manis pake mentega Wijsman. Penasaran banget sih
+                    gimana rasanya, kapan-kapan bakal balik lagi buat nyobain!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev d-none"
+              href="#customCarousel1"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#customCarousel1"
+              role="button"
+              data-slide="next"
+            >
               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <span class="sr-only">Next</span>
             </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- end about section -->
-
-  <!-- news section -->
-
-  <section class="news_section">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Jenis Martabak
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/n1.jpg" class="box-img" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>
-                Martabak Asin
-              </h4>
-              <p>
-               Martabak asin adalah makanan gurih khas Indonesia yang terbuat dari campuran telur (ayam/bebek), daging cincang (sapi/ayam), dan daun bawang yang dibungkus kulit tipis, lalu digoreng hingga garing. Makanan ini memiliki cita rasa gurih-pedas dan umumnya disajikan dengan kuah cuka, acar, serta cabe rawit.
-              </p>
-              <a href="">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/n2.jpg" class="box-img" alt="">
-            </div>
-            <div class="detail-box">
-              <h4>
-                Martabak Manis
-              </h4>
-              <p>
-                Martabak manis adalah jajanan populer Indonesia berupa kue dadar tebal berpori (bersarang) yang dipanggang, diolesi mentega, dan diberi berbagai topping, sering disebut juga terang bulan atau kue Bandung.
-              </p>
-              <a href="">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end news section -->
-
-  <!-- client section -->
-
-  <section class="client_section layout_padding">
-    <div class="container">
-      <div class="col-md-11 col-lg-10 mx-auto">
-        <div class="heading_container heading_center">
-          <h2>
-            Ulasan
-          </h2>
-        </div>
-        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="detail-box">
-                <h4>
-                  Utami Rahmawati - Martabak Bangka Mas Wahyu
-                </h4>
-                <p>
-                  Cari-cari martabak enak di sekitar Babarsari karena martabak langganan saya, Martabak Kubang, sedang tutup. Akhirnya menemukan tempat ini dan memutuskan untuk mencoba karena konsep jualannya cukup unik, menggunakan mobil. Awalnya tidak berekspektasi banyak, tetapi ternyata pilihan menunya cukup beragam. Setelah dicoba, martabak manisnya benar-benar enak. Teksturnya lembut, dengan rasa manis dan gurih yang pas. Selain itu, proses penyajiannya juga terlihat bersih dan higienis. Pokoknya recommended banget untuk yang sedang mencari martabak enak di area Babarsari!
-				</p>
-			  </div>
-            </div>
-            <div class="carousel-item">
-              <div class="detail-box">
-                <h4>
-                  Ceca - Martabak Bangka Mas Feri
-                </h4>
-                <p>
-                 Saya pesan Martabak Telur Bebek Biasa. Rasanya enak, gurih, dan sesuai dengan martabak telur pada umumnya, isian telur bebeknya cukup terasa dan matang merata.
-
-Hanya saja, saat beli di sini perlu sedikit bersabar karena cukup ramai, jadi agak lama.
-Untuk cocolan sausnya menurut saya kurang cocok, rasanya lebih mirip sambal penyetan dibanding saus martabak pada umumnya.
-
-Secara keseluruhan, martabaknya tetap recommended karena rasanya enak dan porsinya pas. Kalau tidak terlalu masalah menunggu, tempat ini bisa jadi pilihan untuk martabak telur bebek yang mantap.
-                </p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="detail-box">
-                <h4>
-                  Pascalis Aditya Kristianto - Martabak Bangka "Nanie"
-                </h4>
-                <p>
-                  Salah satu martabak Bangka yang beneran autentik! Dapat rekomendasi dari teman yang asli orang Bangka, dan pas ke sana ternyata penjualnya pun asli dari sana, jadi menu dan resepnya emang khas Bangka banget.
-
-Baru nyobain martabak manis cokelat kejunya, rasanya mantap banget dan kejunya melimpah alias nggak pelit. Uniknya, di sini ada menu martabak manis pake mentega Wijsman. Penasaran banget sih gimana rasanya, kapan-kapan bakal balik lagi buat nyobain!
-				</p>
-              </div>
-            </div>
-          </div>
-          <a class="carousel-control-prev d-none" href="#customCarousel1" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#customCarousel1" role="button" data-slide="next">
-            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end client section -->
-
-  <div class="footer_container">
-    <!-- info section -->
-    <section class="info_section ">
-      <div class="container">
-        <div class="contact_box">
-          <a href="">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>
-          </a>
-          <a href="">
-            <i class="fa fa-phone" aria-hidden="true"></i>
-          </a>
-          <a href="">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-          </a>
-        </div>
-        <div class="info_links">
-          <ul>
-            <li class="active">
-              <a href="index.html">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="about.html">
-                About
-              </a>
-            </li>
-            <li>
-              <a class="" href="blog.html">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a class="" href="testimonial.html">
-                Testimonial
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="social_box">
-          <a href="">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-          </a>
-          <a href="">
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="">
-            <i class="fa fa-linkedin" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
     </section>
-    <!-- end info_section -->
 
+    <!-- end client section -->
 
-    <!-- footer section -->
-    <footer class="footer_section">
-      <div class="container">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br>
-          Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
-        </p>
-      </div>
-    </footer>
-    <!-- footer section -->
+    <div class="footer_container">
+      <!-- info section -->
+      <section class="info_section">
+        <div class="container">
+          <div class="contact_box">
+            <a href="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </a>
+          </div>
+          <div class="info_links">
+            <ul>
+              <li class="active">
+                <a href="index.html"> Home </a>
+              </li>
+              <li>
+                <a href="about.html"> About </a>
+              </li>
+              <li>
+                <a class="" href="blog.html"> Blog </a>
+              </li>
+              <li>
+                <a class="" href="testimonial.html"> Testimonial </a>
+              </li>
+            </ul>
+          </div>
+          <div class="social_box">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- end info_section -->
 
-  </div>
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <!-- slick  slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
+      <!-- footer section -->
+      <footer class="footer_section">
+        <div class="container">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="https://html.design/">Free Html Templates</a><br />
+            Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
+          </p>
+        </div>
+      </footer>
+      <!-- footer section -->
+    </div>
+    <!-- jQery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.js"></script>
+    <!-- slick  slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+    <!-- nice select -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"
+      integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
 
-        <script src="login/js/welcome.js"></script>
-</body>
+    <script src="login/js/welcome.js"></script>
+  </body>
 </html>
